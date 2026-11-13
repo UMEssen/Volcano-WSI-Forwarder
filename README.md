@@ -17,6 +17,10 @@ Volcano-SMB-Connector ─► WSI transformer ─► volcano.transformer.fhir.r4.
                        volcano.forwarder.fhir.r4.wsi.errors  (failure records, contract v1)
 ```
 
+Overview graphic of the whole WSI import pipeline, from the SMB shares to the research PACS and
+Fuego, with the status of each piece: [WSI Import Pipeline](https://claude.ai/artifact/RT1oj4CBpKUhuKcyErc1VZ)
+(access has to be granted by the owner).
+
 ## What it does, per slide
 
 1. Reads the transformer's bundle: Study Instance UID, every SOP Instance UID, the SMB folder
