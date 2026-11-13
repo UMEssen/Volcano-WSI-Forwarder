@@ -113,10 +113,12 @@ objects and in the study metadata, pixel data complete.
 
 ## Limits
 
-- **Instance size at the receiver.** The receiver's STOW-RS currently buffers each instance in
-  memory with a 100 MiB request limit; multi-GB full-resolution levels need its streaming STOW
-  (Firemetrics `dicom_receiver/plans/stow-streaming.md`). Until then such an instance fails with
-  `STOW_REFUSED` (413) or, if the receiver runs out of memory, `STOW_FAILED`.
+- **Instance size at the receiver.** The released receiver's STOW-RS buffers each instance in
+  memory with a 100 MiB request limit; multi-GB full-resolution levels need its streaming STOW,
+  [Firemetrics/firemetrics#1134](https://github.com/Firemetrics/firemetrics/pull/1134) ("stream
+  STOW-RS instances into S3 with bounded memory", open; plan:
+  `dicom_receiver/plans/stow-streaming.md`). Until a receiver with it is deployed, such an instance
+  fails with `STOW_REFUSED` (413) or, if the receiver runs out of memory, `STOW_FAILED`.
 - **No "already stored" check yet.** The receiver has no QIDO-RS; every attempt sends every
   instance of the slide again. A check against the receiver's object store or a DICOMweb front is
   the next step for the backfill.
